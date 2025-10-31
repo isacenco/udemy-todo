@@ -18,6 +18,8 @@ struct ContentView: View {
     
     @State private var showingAddTodoView = false
     @State private var animatingButton = false
+    
+    @State private var showingSettingsView = false
 
     // MARK: - BODY
     var body: some View {
@@ -39,12 +41,12 @@ struct ContentView: View {
                 .navigationBarItems(
                     leading: EditButton(),
                     trailing: Button(action: {
-                        showingAddTodoView.toggle()
+                        showingSettingsView.toggle()
                     }, label: {
-                        Image(systemName: "plus")
+                        Image(systemName: "paintbrush")
                     }) //: ADD BUTTON
-                        .sheet(isPresented: $showingAddTodoView, content: {
-                            AddTodoView().environment(\.managedObjectContext, self.managedObjectContext)
+                        .sheet(isPresented: $showingSettingsView, content: {
+                            SettingsView()
                         })
                 )
                 
