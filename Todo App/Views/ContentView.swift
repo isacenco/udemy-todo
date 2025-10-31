@@ -13,6 +13,7 @@ struct ContentView: View {
 
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.managedObjectContext) private var managedObjectContext
+    @EnvironmentObject var iconSettings: IconNames
 
     @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Todo.name, ascending: true)]) var todos: FetchedResults<Todo>
     
@@ -47,6 +48,7 @@ struct ContentView: View {
                     }) //: ADD BUTTON
                         .sheet(isPresented: $showingSettingsView, content: {
                             SettingsView()
+                                .environmentObject(iconSettings)
                         })
                 )
                 
