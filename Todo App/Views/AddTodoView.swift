@@ -82,5 +82,5 @@ struct AddTodoView: View {
 
 // MARK: - PREVIEW
 #Preview {
-    AddTodoView()
+    AddTodoView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
