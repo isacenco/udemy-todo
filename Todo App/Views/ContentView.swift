@@ -14,6 +14,9 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.managedObjectContext) private var managedObjectContext
     @EnvironmentObject var iconSettings: IconNames
+    
+    @ObservedObject var theme = ThemeSettings.shared
+    var themes: [Theme] = themeData
 
     @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Todo.name, ascending: true)]) var todos: FetchedResults<Todo>
     
@@ -29,18 +32,31 @@ struct ContentView: View {
                 List {
                     ForEach(todos, id: \.self) { todo in
                         HStack {
+                            Circle()
+                                .frame(width: 12, height: 12, alignment: .center)
+                                .foregroundColor(colorize(priority: todo.priority ?? "Normal"))
+                            
                             Text(todo.name ?? "Unknown")
+                                .fontWeight(.semibold)
                             
                             Spacer()
                             
                             Text(todo.priority ?? "Unknown")
-                        }
+                                .font(.footnote)
+                                .foregroundColor(Color(UIColor.systemGray2))
+                                .padding(3)
+                                .frame(minWidth: 62)
+                                .overlay {
+                                    Capsule().stroke(Color(UIColor.systemGray2), lineWidth: 0.75)
+                                }
+                        } //: HSTACK
+                        .padding(.vertical, 10)
                     } //: FOR EACH
                     .onDelete(perform: deleteTodo)
                 } //: LIST
                 .navigationBarTitle("Todo", displayMode: .inline)
                 .navigationBarItems(
-                    leading: EditButton(),
+                    leading: EditButton().accentColor(themes[theme.themeSettings].color),
                     trailing: Button(action: {
                         showingSettingsView.toggle()
                     }, label: {
@@ -50,6 +66,7 @@ struct ContentView: View {
                             SettingsView()
                                 .environmentObject(iconSettings)
                         })
+                        .accentColor(themes[theme.themeSettings].color)
                 )
                 
                 // MARK: - NO TODO ITEMS
@@ -64,13 +81,13 @@ struct ContentView: View {
                 ZStack {
                     Group {
                         Circle()
-                            .fill(.blue)
+                            .fill(themes[theme.themeSettings].color)
                             .opacity(animatingButton ? 0.2 : 0)
                             .scaleEffect(animatingButton ? 1 : 0)
                             .frame(width: 68, height: 68, alignment: .center)
                         
                         Circle()
-                            .fill(.blue)
+                            .fill(themes[theme.themeSettings].color)
                             .opacity(animatingButton ? 0.15 : 0)
                             .scaleEffect(animatingButton ? 1 : 0)
                             .frame(width: 88, height: 88, alignment: .center)
@@ -86,6 +103,7 @@ struct ContentView: View {
                             .background(Circle().fill(Color("ColorBase")))
                             .frame(width: 48, height: 48, alignment: .center)
                     }) //: BUTTON ADD
+                    .accentColor(themes[theme.themeSettings].color)
                     .onAppear {
                         animatingButton.toggle()
                     }
@@ -94,6 +112,7 @@ struct ContentView: View {
                 .padding(.trailing, 15)
             }
         } //: NAVIGATION VIEW
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     // MARK: - FUNCTIONS
@@ -110,45 +129,22 @@ struct ContentView: View {
             }
         }
     }
-    
-//    private func addItem() {
-//        withAnimation {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
-
-//    private func deleteItems(offsets: IndexSet) {
-//        withAnimation {
-//            offsets.map { items[$0] }.forEach(viewContext.delete)
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
+private func colorize(priority: String) -> Color {
+    switch priority {
+    case "High":
+        return .pink
+    case "Normal":
+        return .green
+    case "Low":
+        return .blue
+    default :
+        return .gray
+    }
+}
+
+
 
 
 // MARK: - PREVIEW
