@@ -14,22 +14,29 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.managedObjectContext) private var managedObjectContext
 
-//    @FetchRequest(
-//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-//        animation: .default)
-//    private var items: FetchedResults<Item>
+    @FetchRequest(entity: Todo.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Todo.name, ascending: true)]) var todos: FetchedResults<Todo>
     
     @State private var showingAddTodoView = false
 
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            List(0 ..< 5) { item in
-                Text("ITEM")
-                
+            List {
+                ForEach(todos, id: \.self) { todo in
+                    HStack {
+                        Text(todo.name ?? "Unknown")
+                        
+                        Spacer()
+                        
+                        Text(todo.priority ?? "Unknown")
+                    }
+                } //: FOR EACH
+                .onDelete(perform: deleteTodo)
             } //: LIST
             .navigationBarTitle("Todo", displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {
+            .navigationBarItems(
+                leading: EditButton(),
+                trailing: Button(action: {
                 showingAddTodoView.toggle()
             }, label: {
                 Image(systemName: "plus")
@@ -42,6 +49,20 @@ struct ContentView: View {
     }
 
     // MARK: - FUNCTIONS
+    
+    private func deleteTodo(at offsets: IndexSet) {
+        for index in offsets {
+            let todo = todos[index]
+            managedObjectContext.delete(todo)
+            
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
 //    private func addItem() {
 //        withAnimation {
 //            let newItem = Item(context: viewContext)
