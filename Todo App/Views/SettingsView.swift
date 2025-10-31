@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     // MARK: - PROPERTIES
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var iconSettings: IconNames
     
     // MARK: - BODY
     var body: some View {
@@ -17,6 +18,61 @@ struct SettingsView: View {
             VStack(alignment: .center, spacing: 0) {
                 // MARK: - FORM
                 Form {
+                    // MARK: - SECTION 1
+                    Section(header: Text("Choose the app icon")) {
+                        Picker(selection: $iconSettings.currentIndex) {
+                            ForEach(0 ..< iconSettings.iconNames.count, id: \.self) { index in
+                                HStack {
+                                    Image(
+                                        uiImage: UIImage(named: iconSettings.iconNames[index] ?? "Blue") ?? UIImage()
+                                    )
+                                    .renderingMode(.original)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 44, height: 44)
+                                    .cornerRadius(9)
+                                    
+                                    Spacer().frame(width: 8)
+                                    
+                                    Text(iconSettings.iconNames[index] ?? "Blue")
+                                        .frame(alignment: .leading)
+                                } //: HSTACK
+                                .padding(3)
+                            }
+                        } label: {
+                            HStack {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 9, style: .continuous)
+                                        .strokeBorder(.primary, lineWidth: 2)
+                                    Image(systemName: "paintbrush")
+                                        .font(.system(size: 29, weight: .regular, design: .default))
+                                        .foregroundColor(.primary)
+                                }
+                                .frame(width: 44, height: 44)
+                                
+                                Text("App Icons".uppercased())
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.primary)
+                            } //: LABEL
+                            
+                        } //: PICKER
+                        .pickerStyle(.navigationLink)
+                        .onReceive([self.iconSettings.currentIndex].publisher.first()) { (value) in
+                            let index = self.iconSettings.iconNames.firstIndex(of: UIApplication.shared.alternateIconName) ?? 0
+                            if index != value {
+                                UIApplication.shared.setAlternateIconName(self.iconSettings.iconNames[value]) { error in
+                                    if let error = error {
+                                        print("Error setting alternate icon: \(error.localizedDescription)")
+                                    } else {
+                                        print("Success")
+                                    }
+                                }
+                            }
+                        }
+
+                    } //: SECTION 1
+                    .padding(.vertical, 3)
+                    
                     // MARK: - SECTION 3
                     Section(header: Text("Follow us on social media")) {
                         FormRowLinkView(icon: "globe", color: .pink, text: "Website", link: "https://swiftuimasterclass.com")
@@ -61,4 +117,34 @@ struct SettingsView: View {
 // MARK: - PREVIEW
 #Preview {
     SettingsView()
+        .environmentObject(IconNames())
+}
+
+extension UIImage {
+    func scalePreservingAspectRatio(targetSize: CGSize) -> UIImage {
+        // Determine the scale factor that preserves aspect ratio
+        let widthRatio = targetSize.width / size.width
+        let heightRatio = targetSize.height / size.height
+
+        let scaleFactor = min(widthRatio, heightRatio)
+
+        // Compute the new image size that preserves aspect ratio
+        let scaledImageSize = CGSize(
+            width: size.width * scaleFactor,
+            height: size.height * scaleFactor
+        )
+
+        // Draw and return the resized UIImage
+        let renderer = UIGraphicsImageRenderer(
+            size: scaledImageSize
+        )
+
+        let scaledImage = renderer.image { _ in
+            self.draw(in: CGRect(
+                origin: .zero,
+                size: scaledImageSize,
+            ))
+        }
+        return scaledImage
+    }
 }

@@ -18,6 +18,15 @@
 		E1AE779F2EB4FD08000AC8B8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE779E2EB4FD07000AC8B8 /* SettingsView.swift */; };
 		E1AE77A12EB4FF77000AC8B8 /* FormRowStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE77A02EB4FF77000AC8B8 /* FormRowStaticView.swift */; };
 		E1AE77A32EB5015E000AC8B8 /* FormRowLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE77A22EB5015E000AC8B8 /* FormRowLinkView.swift */; };
+		E1AE77AE2EB5074A000AC8B8 /* Pink Dark.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE77AC2EB5074A000AC8B8 /* Pink Dark.png */; };
+		E1AE77AF2EB5074A000AC8B8 /* Blue Light.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE77A72EB5074A000AC8B8 /* Blue Light.png */; };
+		E1AE77B02EB5074A000AC8B8 /* Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE77A52EB5074A000AC8B8 /* Blue.png */; };
+		E1AE77B12EB5074A000AC8B8 /* Green Dark.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE77A92EB5074A000AC8B8 /* Green Dark.png */; };
+		E1AE77B22EB5074A000AC8B8 /* Green Light.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE77AA2EB5074A000AC8B8 /* Green Light.png */; };
+		E1AE77B32EB5074A000AC8B8 /* Pink.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE77AB2EB5074A000AC8B8 /* Pink.png */; };
+		E1AE77B42EB5074A000AC8B8 /* Pink Light.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE77AD2EB5074A000AC8B8 /* Pink Light.png */; };
+		E1AE77B52EB5074A000AC8B8 /* Blue Dark.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE77A62EB5074A000AC8B8 /* Blue Dark.png */; };
+		E1AE77B62EB5074A000AC8B8 /* Green.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE77A82EB5074A000AC8B8 /* Green.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +42,16 @@
 		E1AE779E2EB4FD07000AC8B8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E1AE77A02EB4FF77000AC8B8 /* FormRowStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRowStaticView.swift; sourceTree = "<group>"; };
 		E1AE77A22EB5015E000AC8B8 /* FormRowLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRowLinkView.swift; sourceTree = "<group>"; };
+		E1AE77A52EB5074A000AC8B8 /* Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blue.png; sourceTree = "<group>"; };
+		E1AE77A62EB5074A000AC8B8 /* Blue Dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue Dark.png"; sourceTree = "<group>"; };
+		E1AE77A72EB5074A000AC8B8 /* Blue Light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue Light.png"; sourceTree = "<group>"; };
+		E1AE77A82EB5074A000AC8B8 /* Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Green.png; sourceTree = "<group>"; };
+		E1AE77A92EB5074A000AC8B8 /* Green Dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green Dark.png"; sourceTree = "<group>"; };
+		E1AE77AA2EB5074A000AC8B8 /* Green Light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green Light.png"; sourceTree = "<group>"; };
+		E1AE77AB2EB5074A000AC8B8 /* Pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pink.png; sourceTree = "<group>"; };
+		E1AE77AC2EB5074A000AC8B8 /* Pink Dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pink Dark.png"; sourceTree = "<group>"; };
+		E1AE77AD2EB5074A000AC8B8 /* Pink Light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pink Light.png"; sourceTree = "<group>"; };
+		E1AE77B72EB5082B000AC8B8 /* Todo-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Todo-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +84,8 @@
 		E157E5952EB4C59C004150BA /* Todo App */ = {
 			isa = PBXGroup;
 			children = (
+				E1AE77B72EB5082B000AC8B8 /* Todo-App-Info.plist */,
+				E1AE77A42EB5070E000AC8B8 /* Icons */,
 				E157E5902EB4C59C004150BA /* Assets.xcassets */,
 				E157E59C2EB4C59F004150BA /* Views */,
 				E157E5922EB4C59C004150BA /* Persistence.swift */,
@@ -86,6 +107,22 @@
 				E1AE77A22EB5015E000AC8B8 /* FormRowLinkView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E1AE77A42EB5070E000AC8B8 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				E1AE77A52EB5074A000AC8B8 /* Blue.png */,
+				E1AE77A62EB5074A000AC8B8 /* Blue Dark.png */,
+				E1AE77A72EB5074A000AC8B8 /* Blue Light.png */,
+				E1AE77A82EB5074A000AC8B8 /* Green.png */,
+				E1AE77A92EB5074A000AC8B8 /* Green Dark.png */,
+				E1AE77AA2EB5074A000AC8B8 /* Green Light.png */,
+				E1AE77AB2EB5074A000AC8B8 /* Pink.png */,
+				E1AE77AC2EB5074A000AC8B8 /* Pink Dark.png */,
+				E1AE77AD2EB5074A000AC8B8 /* Pink Light.png */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +186,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AE77AE2EB5074A000AC8B8 /* Pink Dark.png in Resources */,
+				E1AE77AF2EB5074A000AC8B8 /* Blue Light.png in Resources */,
+				E1AE77B02EB5074A000AC8B8 /* Blue.png in Resources */,
+				E1AE77B12EB5074A000AC8B8 /* Green Dark.png in Resources */,
+				E1AE77B22EB5074A000AC8B8 /* Green Light.png in Resources */,
+				E1AE77B32EB5074A000AC8B8 /* Pink.png in Resources */,
+				E1AE77B42EB5074A000AC8B8 /* Pink Light.png in Resources */,
+				E1AE77B52EB5074A000AC8B8 /* Blue Dark.png in Resources */,
+				E1AE77B62EB5074A000AC8B8 /* Green.png in Resources */,
 				E157E59B2EB4C59C004150BA /* Assets.xcassets in Resources */,
 				E1AE779B2EB4DA89000AC8B8 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -307,6 +353,7 @@
 				DEVELOPMENT_TEAM = U3W7A494A6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Todo-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -335,6 +382,7 @@
 				DEVELOPMENT_TEAM = U3W7A494A6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Todo-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
