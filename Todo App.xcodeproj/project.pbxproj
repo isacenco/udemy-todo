@@ -13,6 +13,8 @@
 		E157E59A2EB4C59C004150BA /* Todo_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157E5942EB4C59C004150BA /* Todo_AppApp.swift */; };
 		E157E59B2EB4C59C004150BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E157E5902EB4C59C004150BA /* Assets.xcassets */; };
 		E157E59E2EB4C5B5004150BA /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157E59D2EB4C5B5004150BA /* AddTodoView.swift */; };
+		E1AE779B2EB4DA89000AC8B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AE779A2EB4DA89000AC8B8 /* LaunchScreen.storyboard */; };
+		E1AE779D2EB4DD66000AC8B8 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE779C2EB4DD66000AC8B8 /* EmptyListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		E157E5942EB4C59C004150BA /* Todo_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo_AppApp.swift; sourceTree = "<group>"; };
 		E157E5962EB4C59C004150BA /* Todo_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todo_App.xcdatamodel; sourceTree = "<group>"; };
 		E157E59D2EB4C5B5004150BA /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
+		E1AE779A2EB4DA89000AC8B8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E1AE779C2EB4DD66000AC8B8 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 				E157E5922EB4C59C004150BA /* Persistence.swift */,
 				E157E5932EB4C59C004150BA /* Todo_App.xcdatamodeld */,
 				E157E5942EB4C59C004150BA /* Todo_AppApp.swift */,
+				E1AE779A2EB4DA89000AC8B8 /* LaunchScreen.storyboard */,
 			);
 			path = "Todo App";
 			sourceTree = "<group>";
@@ -69,6 +74,7 @@
 			children = (
 				E157E5912EB4C59C004150BA /* ContentView.swift */,
 				E157E59D2EB4C5B5004150BA /* AddTodoView.swift */,
+				E1AE779C2EB4DD66000AC8B8 /* EmptyListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E157E59B2EB4C59C004150BA /* Assets.xcassets in Resources */,
+				E1AE779B2EB4DA89000AC8B8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +154,7 @@
 			files = (
 				E157E5972EB4C59C004150BA /* ContentView.swift in Sources */,
 				E157E5982EB4C59C004150BA /* Persistence.swift in Sources */,
+				E1AE779D2EB4DD66000AC8B8 /* EmptyListView.swift in Sources */,
 				E157E5992EB4C59C004150BA /* Todo_App.xcdatamodeld in Sources */,
 				E157E59A2EB4C59C004150BA /* Todo_AppApp.swift in Sources */,
 				E157E59E2EB4C5B5004150BA /* AddTodoView.swift in Sources */,
@@ -290,8 +298,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -318,8 +326,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

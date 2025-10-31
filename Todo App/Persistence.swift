@@ -14,10 +14,12 @@ struct PersistenceController {
     static let preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Todo(context: viewContext)
-            newItem.id = UUID()
-        }
+//        for _ in 0..<10 {
+//            let newItem = Todo(context: viewContext)
+//            newItem.id = UUID()
+//            newItem.name = newItem.id?.uuidString
+//            newItem.priority = "Medium"
+//        }
         do {
             try viewContext.save()
         } catch {
